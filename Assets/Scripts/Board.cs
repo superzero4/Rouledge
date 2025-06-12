@@ -221,9 +221,9 @@ public class Board : MonoBehaviour
     {
         bet.ProcessBets(out float EV, out float deviation, out float totalBet);
         Debug.Log($"EV: {EV}, Variance: {deviation}, Total Bet: {totalBet}");
-        evText.text = $"EV: {EV:F3}";
-        varText.text = $"Dev: {deviation:F3}";
-        betText.text = $"Bet: {totalBet}";
+        evText.text = $"Average win: {EV:F3}$";
+        varText.text = $"Dev: {deviation:F3}$";
+        betText.text = $"Bet: {totalBet}$";
         if (totalBet > 0)
             _bell.UpdateCurve(EV, deviation, totalBet);
         else
