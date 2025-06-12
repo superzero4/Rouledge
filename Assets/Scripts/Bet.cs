@@ -44,14 +44,14 @@ namespace DefaultNamespace
                     EV += result;
                 }
             }
-
+            EV /= xis.Length;
+            
             float variance = 0f;
             foreach (var val in xis)
             {
                 variance += Mathf.Pow((val - EV), 2);
             }
 
-            EV /= xis.Length;
             deviation = Mathf.Sqrt(variance / xis.Length);
             //Debug.Log(" Xis : " + string.Join(", ", xis));
         }
