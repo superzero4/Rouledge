@@ -10,6 +10,7 @@ public class BellRenderer : MonoBehaviour
     [Range(-1, 1f)] public float center;
 
     [Range(0, 500f)] public float deviation;
+    public float totalBet;
     public Vector2 scale;
     public Vector3 offset;
     [Range(0, 5f)] public float width = 1f;
@@ -20,6 +21,7 @@ public class BellRenderer : MonoBehaviour
     public LineRenderer lineRenderer;
     public LineRenderer axis;
     private VisualElement _root;
+    private bool dirty = true;
 
     public VisualElement Root
     {
@@ -42,11 +44,13 @@ public class BellRenderer : MonoBehaviour
     }
 
 
-    public void UpdateCurve(float center, float deviation)
+    public void UpdateCurve(float center, float deviation, float totalBet = 0f)
     {
         this.center = center;
         this.deviation = deviation;
+        this.totalBet = totalBet;
         _root?.MarkDirtyRepaint();
+        dirty = true;
         return;
         //lineRenderer.positionCount = resolution + 1;
         //lineRenderer.widthMultiplier = width;
@@ -117,6 +121,8 @@ public class BellRenderer : MonoBehaviour
 
     public void OnGenerateVisualContent(MeshGenerationContext obj)
     {
+        if (!dirty)
+            return;
         var paint = obj.painter2D;
         paint.lineCap = LineCap.Round;
         paint.lineJoin = LineJoin.Bevel;
@@ -126,13 +132,17 @@ public class BellRenderer : MonoBehaviour
         paint.fillColor = Color.gray;
         var curv = Curve().ToList();
         SetLine(paint, curv, scale, false);
-        var half1 = curv.Take(curv.Count / 2);
-        var half2 = curv.Skip(curv.Count / 2);
+        Vector3 breakPoint = Vector3.zero;
+        breakPoint.x = totalBet;
+        Debug.Log(" totalBet: " + totalBet + " => breakPoint: " + breakPoint.x);
+        int selection = (int)(curv.Count * (1 + breakPoint.x / deviationScale) / 2);
+        var half1 = curv.Take(selection);
+        var half2 = curv.Skip(selection);
         paint.fillColor = negative;
-        SetLine(paint, half1.Prepend(deviationScale * Vector3.left).Append(Vector3.zero), scale,
+        SetLine(paint, half1.Prepend(deviationScale * Vector3.left).Append(breakPoint), scale,
             true);
         paint.fillColor = positive;
-        SetLine(paint, half2.Prepend(Vector3.zero).Append(deviationScale * Vector3.right), scale, true);
+        SetLine(paint, half2.Prepend(breakPoint).Append(deviationScale * Vector3.right), scale, true);
 
         paint.strokeColor = Color.black;
         paint.lineCap = LineCap.Butt;

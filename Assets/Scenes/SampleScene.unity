@@ -166,11 +166,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bell: {fileID: 1492651150}
   _root: {fileID: 1919295528}
-  _tile: {fileID: 9197481963319205126, guid: 359c8083e9ba0bb4e879c85bf325a186, type: 3}
+  _tile: {fileID: 9197481963319205126, guid: 50249fc933cc2314b8adb5e960b4b700, type: 3}
+  _chip: {fileID: 9197481963319205126, guid: 359c8083e9ba0bb4e879c85bf325a186, type: 3}
   _size: {x: 12, y: 3}
   _rightAdditionalTiles: 1
   _bottomAdditionalTiles: 2
-  currentBetAmount: 1
+  _chipPercentage: 0.75
+  initialBetAmount: 1
   bet:
     rid: 6415941999049834565
   green: {r: 0, g: 0.5, b: 0, a: 1}
@@ -560,11 +562,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   center: -0.486
   deviation: 2
+  totalBet: 0
   scale: {x: 1, y: 1}
   offset: {x: 0, y: 0, z: 0}
   width: 5
   resolution: 500
-  xSampleArea: 3
+  xSampleArea: 1.5
   positive: {r: 0, g: 0.5019608, b: 0.5019608, a: 1}
   negative: {r: 0.5019608, g: 0.1254902, b: 0, a: 1}
   lineRenderer: {fileID: 1938592583}

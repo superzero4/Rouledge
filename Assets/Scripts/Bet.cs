@@ -52,7 +52,8 @@ namespace DefaultNamespace
             }
 
             EV /= xis.Length;
-            deviation = Mathf.Sqrt((1f / xis.Length) * variance);
+            deviation = Mathf.Sqrt(variance / xis.Length);
+            //Debug.Log(" Xis : " + string.Join(", ", xis));
         }
     }
 }

@@ -10,5 +10,5 @@
         </engine:VisualElement>
         <engine:VisualElement name="Board" style="flex-grow: 1; width: 70%; height: 100%; top: 0; bottom: auto; transform-origin: left top; position: absolute; align-self: flex-end;" />
     </engine:VisualElement>
-    <engine:Label text="Rouledge&#10;" name="Title" style="font-size: 101%; -unity-text-align: upper-center; width: 100%; height: 20%; top: 0; left: 0; position: absolute; -unity-font-definition: url(&quot;project://database/Assets/External/Quantum%20Tek/Quantum%20UI/Fonts/Montserrat/Montserrat-Regular.ttf?fileID=12800000&amp;guid=b7daad43b97524c2ebc09a56f597b241&amp;type=3#Montserrat-Regular&quot;);" />
+    <engine:Label text="Rouledge&#10;" name="Title" style="font-size: 80%; -unity-text-align: upper-center; width: 100%; height: 20%; top: 0; left: 0; position: absolute; -unity-font-definition: url(&quot;project://database/Assets/External/Quantum%20Tek/Quantum%20UI/Fonts/Montserrat/Montserrat-Regular.ttf?fileID=12800000&amp;guid=b7daad43b97524c2ebc09a56f597b241&amp;type=3#Montserrat-Regular&quot;);" />
 </engine:UXML>
