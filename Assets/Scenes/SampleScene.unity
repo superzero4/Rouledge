@@ -172,7 +172,7 @@ MonoBehaviour:
   _rightAdditionalTiles: 1
   _bottomAdditionalTiles: 2
   _chipPercentage: 0.75
-  initialBetAmount: 1
+  initialBetAmount: 2
   bet:
     rid: 6415941999049834565
   green: {r: 0, g: 0.5, b: 0, a: 1}
@@ -567,7 +567,7 @@ MonoBehaviour:
   offset: {x: 0, y: 0, z: 0}
   width: 5
   resolution: 500
-  xSampleArea: 1.5
+  xSampleArea: 3
   positive: {r: 0, g: 0.5019608, b: 0.5019608, a: 1}
   negative: {r: 0.5019608, g: 0.1254902, b: 0, a: 1}
   lineRenderer: {fileID: 1938592583}
