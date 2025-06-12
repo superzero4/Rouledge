@@ -145,6 +145,7 @@ public class BellRenderer : MonoBehaviour
         SetLine(paint, half2.Prepend(breakPoint).Append(deviationScale * Vector3.right), scale, true);
 
         paint.strokeColor = Color.black;
+        paint.lineWidth = width/2f;
         paint.lineCap = LineCap.Butt;
         paint.lineJoin = LineJoin.Round;
         Vector3[] axisPoints =
